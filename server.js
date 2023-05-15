@@ -68,8 +68,8 @@ app.get('/todos/:id', (req, res) => {
 // Route pour mettre à jour une todo par son ID
 app.put('/todos/:id', (req, res) => {
   const todoId = req.params.id;
-
-  Todo.findByIdAndUpdate(todoId, { status: "completed" }, { new: true })
+  const status = req.body.status=== "completed" ? "incompleted" : "completed"
+  Todo.findByIdAndUpdate(todoId, { status: status }, { new: true })
     .then(todo => {
       if (!todo) {
         res.status(404).json({ message: 'Todo non trouvée' });
