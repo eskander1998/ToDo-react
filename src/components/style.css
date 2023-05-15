@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header img {
+  max-width: 200px;
+  height: auto;
+}
+
+.todo-list {
+  margin-top: 10px;
+  min-width: 60%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+li .task-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+li .task-status.completed {
+  color: green;
+}
+
+li .task-status.not-completed {
+  color: red;
+}
+li:last-child {
+  border-bottom: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+a:hover {
+  color: #555;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #bbb;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+input[type="text"],
+textarea {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0071af;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #bbb;
+}
