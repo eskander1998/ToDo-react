@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../components/style.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function TaskList() {
   const [todos, setTodos] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:5555/todos").then((response) => {
@@ -45,7 +47,10 @@ export default function TaskList() {
       }
     });
   };
+  const viewTodoDetails = ( task) => {
+    navigate(`/tododetail/${task._id}` );
 
+  };
   return (
     <div className="container">
       <div className="header">
@@ -65,8 +70,11 @@ export default function TaskList() {
                   type="checkbox"
                   checked={task.status === 'completed' ? true : false}
                   onChange={() => updateTaskOrder(task)}
+
                 />
-                <a className={task.status === 'completed'  ? 'completed' : ''}>
+                <a className={task.status === 'completed' ? 'completed' : ''}
+                  onClick={() => viewTodoDetails(task)}
+                >
                   {task.title}
                 </a>
               </div>

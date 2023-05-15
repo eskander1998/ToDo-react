@@ -50,6 +50,12 @@ app.get('/todos', (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+app.get('/todos/:id', (req, res) => {
+  Todo.findById(req.params.id)
+    .then(todos => res.json(todos))
+    .catch(err => res.status(500).json(err));
+});
+
 // Route pour récupérer une todo par son ID
 app.get('/todos/:id', (req, res) => {
   const todoId = req.params.id;
