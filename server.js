@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // Connexion à la base de données MongoDB
- mongoose.connect("mongodb+srv://eskanderjguirim:eskander@cluster0.qjdjgmf.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://eskanderjguirim:eskander@cluster0.qjdjgmf.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie'))
   .catch(err => console.error('Erreur de connexion à MongoDB', err));
 
@@ -16,7 +16,8 @@ const todoSchema = new mongoose.Schema({
     default: "incompleted"
   }
 
-});
+},
+  { timestamps: true });
 
 // Définition du modèle basé sur le schéma
 const Todo = mongoose.model('Todo', todoSchema);
@@ -74,7 +75,7 @@ app.get('/todos/:id', (req, res) => {
 // Route pour mettre à jour une todo par son ID
 app.put('/todos/:id', (req, res) => {
   const todoId = req.params.id;
-  const status = req.body.status=== "completed" ? "incompleted" : "completed"
+  const status = req.body.status === "completed" ? "incompleted" : "completed"
   Todo.findByIdAndUpdate(todoId, { status: status }, { new: true })
     .then(todo => {
       if (!todo) {
