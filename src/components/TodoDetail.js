@@ -34,8 +34,8 @@ function TodoDetail() {
       <div className="todo-info">
         <h2>{todo.title}</h2>
         <p>{todo.description}</p>
-        <div className={`todo-status ${todo.completed ? 'completed' : 'notCompleted'}`}>
-          {todo.completed ? 'completed' : 'not completed'}
+        <div className={`todo-status ${todo.status=== 'completed'? 'completed' : 'notCompleted'}`}>
+          {todo.status}
         </div>
       </div>
     </div>
