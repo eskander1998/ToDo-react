@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/todos",
+      "dest": "server.js"
+    },
+    {
+      "src": "/todos/:id",
+      "dest": "server.js"
+    },
+    {
+      "src": "/todosall",
+      "dest": "server.js"
+    }
+  ]
+}
