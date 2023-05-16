@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "1",
+    "title": "Tâche 1",
+    "description": "Description de la tâche 1",
+    "status": "incompleted"
+  },
+  {
+    "_id": "2",
+    "title": "Tâche 2",
+    "description": "Description de la tâche 2",
+    "status": "completed"
+  }
+]
