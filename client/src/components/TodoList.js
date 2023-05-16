@@ -11,7 +11,7 @@ export default function TaskList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5555/todos").then((response) => {
+    axios.get("https://backend-rho-cyan.vercel.app/todos").then((response) => {
       console.log(`👀 `, response.data)
       const sortedTodos = response.data.sort((a, b) => {
         if (a.status === b.status) {
@@ -39,7 +39,7 @@ export default function TaskList() {
       ...task
     };
 
-    axios.put(`http://localhost:5555/todos/${task._id}`, updatedTask).then((response) => {
+    axios.put(`https://backend-rho-cyan.vercel.app/todos/${task._id}`, updatedTask).then((response) => {
       const updatedTaskFromResponse = response.data;
       const updatedTodos = [...todos];
       const index = updatedTodos.findIndex((t) => t._id === task._id);
@@ -83,7 +83,7 @@ export default function TaskList() {
       completed: false,
       description: taskDescription,
     };
-    axios.post("http://localhost:5555/todos", newTask).then((response) => {
+    axios.post("https://backend-rho-cyan.vercel.app/todos", newTask).then((response) => {
       const taskToAdd = { ...response.data };
       setTodos([taskToAdd, ...todos]);
       setTaskTitle("");

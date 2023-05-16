@@ -10,7 +10,7 @@ function TodoDetail() {
   const { id } = params;
 
   useEffect(() => {
-    axios.get("http://localhost:5555/todos/" + id).then((response) => {
+    axios.get("https://backend-rho-cyan.vercel.app/todos/" + id).then((response) => {
       setTodo(response.data);
 
     });
